@@ -4,7 +4,7 @@ use Mix.Config
 # you likely want to automate and keep it away from
 # your version control system.
 config :peepchat, Peepchat.Endpoint,
-  secret_key_base: "19n7vrpt3kodpyPGdMNydJS2IxcgTRkjnqy4wez1lY/fYwOos/vDcW1XRQcPS8cu"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Configure your database
 config :peepchat, Peepchat.Repo,
