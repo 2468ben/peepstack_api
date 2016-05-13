@@ -18,8 +18,9 @@ defmodule Peepchat.Web do
 
   def model do
     quote do
-      use Ecto.Model
+      use Ecto.Schema
 
+      import Ecto
       import Ecto.Changeset
       import Ecto.Query, only: [from: 1, from: 2]
     end
@@ -30,10 +31,11 @@ defmodule Peepchat.Web do
       use Phoenix.Controller
 
       alias Peepchat.Repo
-      import Ecto.Model
+      import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 
       import Peepchat.Router.Helpers
+      import Peepchat.Gettext
     end
   end
 
@@ -45,6 +47,8 @@ defmodule Peepchat.Web do
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
 
       import Peepchat.Router.Helpers
+      import Peepchat.ErrorHelpers
+      import Peepchat.Gettext
     end
   end
 
@@ -59,8 +63,9 @@ defmodule Peepchat.Web do
       use Phoenix.Channel
 
       alias Peepchat.Repo
-      import Ecto.Model
+      import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
+      import Peepchat.Gettext
     end
   end
 

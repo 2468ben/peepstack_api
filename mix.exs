@@ -6,7 +6,7 @@ defmodule Peepchat.Mixfile do
      version: "0.0.1",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
-     compilers: [:phoenix] ++ Mix.compilers,
+     compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases,
@@ -18,8 +18,8 @@ defmodule Peepchat.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Peepchat, []},
-     applications: [:phoenix, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+     applications: [:phoenix, :cowboy, :logger, :gettext,
+                    :phoenix_ecto, :postgrex, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -30,11 +30,15 @@ defmodule Peepchat.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.0.3"},
-     {:phoenix_ecto, "~> 1.1"},
+    [{:phoenix, "~> 1.1.2"},
+     {:phoenix_ecto, "~> 2.0"},
      {:postgrex, ">= 0.0.0"},
-     {:cowboy, "~> 1.0"},
-     {:cors_plug, "~> 1.1"}]
+     {:gettext, "~> 0.9"},
+     {:cors_plug, "~> 1.1"},
+     {:ja_serializer, "~> 0.8.1"},
+     {:comeonin, "~> 2.4"},
+     {:guardian, "~> 0.10.0"},
+     {:cowboy, "~> 1.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

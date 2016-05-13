@@ -21,8 +21,9 @@ defmodule Peepchat.ChannelCase do
       use Phoenix.ChannelTest
 
       alias Peepchat.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 2]
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query, only: [from: 1, from: 2]
 
 
       # The default endpoint for testing
